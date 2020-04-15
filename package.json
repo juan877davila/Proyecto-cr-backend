@@ -1,0 +1,19 @@
+{
+  "name": "proyecto-cr-backend",
+  "version": "1.0.0",
+  "description": "Inventario APP",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/juan877davila/Proyecto-cr-backend.git"
+  },
+  "author": "Over, Juan, Alberto",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/juan877davila/Proyecto-cr-backend/issues"
+  },
+  "homepage": "https://github.com/juan877davila/Proyecto-cr-backend#readme"
+}
