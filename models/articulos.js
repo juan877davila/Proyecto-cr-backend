@@ -7,9 +7,11 @@ const articuloSchema = new Schema({
     required: true,
   },
   color: {
-      type: String,
+    type: String,
   },
-  talla: null,
+  talla: {
+    type: String,
+  },
   cantidad: {
     type: Number,
     required: true,
@@ -21,6 +23,6 @@ const articuloSchema = new Schema({
   timestamps: true,
 });
 
-const Articulo = mongoose.model('Articulo', itemSchema);
+const Articulo = mongoose.model('Articulo', articuloSchema);
 
 module.exports = Articulo;

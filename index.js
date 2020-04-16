@@ -1,12 +1,13 @@
+// Variables de entorno
+require('dotenv').config()
+
 const express = require('express');
 const app = express();
 //for providing a Connect/Express middleware
 const cors = require('cors');
 const path = require('path');
 const port = process.env.PORT || 3000;
-require('./database/database.js');
-// Variables de entorno
-require('dotenv').config()
+require('./database/mongodb.js');
 
 // Middlewares 
 app.use(express.json()); //-> nos habilita el req.body
