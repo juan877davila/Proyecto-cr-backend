@@ -29,26 +29,28 @@ router.get('/Articulos/:id', (req, res) => {
 });
 
 // Actualizar cantidades /id?operacion=ingreso&cantidad=#
-router.patch('/Articulos/:id', (req, res) =>{
-  if(req.query.operacion === ingreso){
-    const articulo = await Articulo.findById(req.params.id);
+router.patch('/Articulos/:id', async (req, res) =>{
+  console.log(req.query.operacion);
+  const articulo = await Articulo.findById(req.params.id);
+  let cantidad = Number(articulo.cantidad);
+  if(req.query.operacion === "ingreso"){    
     console.log(req.query.cantidad);
-    articulo.cantidad += req.query.cantidad;
+    cantidad += Number(req.query.cantidad);
     Articulo.findByIdAndUpdate(req.params.id, { cantidad }, { new: true })
     .then(() => res.status(200).json(Articulo))
     .catch(err => res.status(404).json(err))
   } else{
-    const articulo = await Articulo.findById(req.params.id);
-    articulo.cantidad -= req.query.cantidad;
+    console.log(req.query.cantidad);
+    cantidad -= req.query.cantidad;
     Articulo.findByIdAndUpdate(req.params.id, { cantidad }, { new: true })
-    .then(() => res.status(200).json(Articulo))
+    .then((Articulo) => res.status(200).json(Articulo))
     .catch(err => res.status(404).json(err))
   }
 });
 
 router.delete('/Articulos/:id', (req, res) =>{
   Articulo.findByIdAndDelete(req.params.id)
-    .then(() => res.status(200).json(Articulo))
+    .then(() => res.status(200).json('Borrado exitoso'))
     .catch(err => res.status(404).json(err))
 });
 
