@@ -1,12 +1,11 @@
 var express = require('express');
 var router = express.Router();
 
-const Articulo = require('../models/Articulos')
+const Articulo = require('../models/articulos')
 
 /**
  * CRUD Articulos
  */
-
 router.post('/Articulos', (req, res) =>{
   Articulo.create(req.body)
     .then(Articulo => res.status(201).json(Articulo))
